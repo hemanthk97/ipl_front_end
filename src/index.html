@@ -1,0 +1,175 @@
+<!doctype html>
+<html ng-app="ipl">
+  <head>
+    <meta charset="utf-8">
+    <title>ipl</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <link href="/styles/style.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are usin g an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="container" ng-controller="MainController as main">
+      <div class="jumbotron text-center" ng-controller="livesimulation as live">
+        <span class="label label-primary">live</span>
+        <h3>Royal Challengers Bangalore vs Sunrisers Hyderabad</h1>
+          <section class="stream" >
+            <div class="add-remove">
+
+            </div>
+          </section>
+        <p class="lead">
+          Royal Challengers Bangalore won to choose to bat
+        </p>
+      </div>
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group" ng-repeat="date in [2008,2009,2010,2011,2012,2013,2014,2015,2016]">
+          <button type="button" class="btn btn-default" ng-click="main.seasonselection(date)">{{date}}</button>
+      </div>
+      </div>
+      <br>
+      <div class="row">
+            <div class="col-sm-6 col-md-4 " ng-repeat="match in main.matches | pages:(main.currentPage - 1) * main.pageSize:2008| limitTo: main.pageSize" ng-click="main.showDetails(match.id,match.winner,match.team1,match.team2)">
+              <div class="thumbnail matches">
+                <div class="caption">
+               <h3>{{ match.team1 }} vs {{match.team2}}</h3>
+               <p><i class="fa fa-globe" aria-hidden="true"></i>:{{ match.city}}</p>
+               <p><i class="fa fa-calendar-o" aria-hidden="true"></i>:{{ match.date }}</a></p>
+               <p><i class="fa fa-trophy" aria-hidden="true"></i></span>{{ match.winner }}</a></p>
+               </div>
+          </div>
+        </div>
+      </div>
+    <ul ng-if="main.detailsss" uib-pagination total-items="main.matches.length" ng-model="main.currentPage" items-per-page="main.pageSize"></ul>﻿
+   <div id="detailed_info">
+   <div class="jumbotron text-center">
+     <div class="teams">
+     <div class="team1" ng-click="main.isact($event,'.team1',main.team1)"><i class="fa fa-trophy" aria-hidden="true" ng-show="main.trophy1"></i>{{main.team1}}</div>
+     <div>&nbsp;&nbsp;VS&nbsp;&nbsp;</div>
+     <div class="team2" ng-click="main.isact($event,'.team2',main.team2)"><i class="fa fa-trophy" aria-hidden="true" ng-show="main.trophy2"></i>{{main.team2}}</div>
+   </div>
+      <section class="stream" >
+        <div class="multiple-items">
+        <div class="over" id="over1" ng-show="main.over1.length > 0">over 1</div>
+        <div class="ball item" ng-repeat="ball in main.over1" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over2" ng-show="main.over2.length > 0">over 2</div>
+        <div class="ball item" ng-repeat="ball in main.over2" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over3" ng-show="main.over3.length > 0">over 3</div>
+        <div class="ball item" ng-repeat="ball in main.over3" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over4" ng-show="main.over4.length > 0">over 4</div>
+        <div class="ball item" ng-repeat="ball in main.over4" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over5" ng-show="main.over5.length > 0">over 5</div>
+        <div class="ball item" ng-repeat="ball in main.over5" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over6" ng-show="main.over6.length > 0">over 6</div>
+        <div class="ball item" ng-repeat="ball in main.over6" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over7" ng-show="main.over7.length > 0">over 7</div>
+        <div class="ball item" ng-repeat="ball in main.over7" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over8" ng-show="main.over8.length > 0">over 8</div>
+        <div class="ball item" ng-repeat="ball in main.over8" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over9" ng-show="main.over9.length > 0">over 9</div>
+        <div class="ball item" ng-repeat="ball in main.over9" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over10" ng-show="main.over10.length > 0">over 10</div>
+        <div class="ball item" ng-repeat="ball in main.over10" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over11" ng-show="main.over11.length > 0">over 11</div>
+        <div class="ball item" ng-repeat="ball in main.over11" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over12" ng-show="main.over12.length > 0">over 12</div>
+        <div class="ball item" ng-repeat="ball in main.over12" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over13" ng-show="main.over13.length > 0">over 13</div>
+        <div class="ball item" ng-repeat="ball in main.over13" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over14" ng-show="main.over14.length > 0">over 14</div>
+        <div class="ball item" ng-repeat="ball in main.over14" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over15" ng-show="main.over15.length > 0">over 15</div>
+        <div class="ball item" ng-repeat="ball in main.over15" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over16" ng-show="main.over16.length > 0">over 16</div>
+        <div class="ball item" ng-repeat="ball in main.over16" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over17" ng-show="main.over17.length > 0">over 17</div>
+        <div class="ball item" ng-repeat="ball in main.over17" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over18" ng-show="main.over18.length > 0">over 18</div>
+        <div class="ball item" ng-repeat="ball in main.over18" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over19" ng-show="main.over19.length > 0">over 19</div>
+        <div class="ball item" ng-repeat="ball in main.over19" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        <div class="over" id="over20" ng-show="main.over20.length > 0">over 20</div>
+        <div class="ball item" ng-repeat="ball in main.over20" ng-click="main.detailball(ball)">{{ball.total_runs}}</div>
+        </div>
+      </section>
+        <h4>Detailed ball history</h4>
+      <div class="detail_ball">
+      <div class="detail_player">
+      <div>player dismissed:&nbsp;{{main.balldet.player_dismissed}}</div>
+      <div>batsman:&nbsp;{{main.balldet.batsman}}</div>
+      <div>Wicket:&nbsp;{{main.balldet.dismissal_kind}}</div>
+      <div>bowler:&nbsp;{{main.balldet.bowler}}</div>
+      </div>
+      <div class="detail_extra">
+      <div>leg Bye:&nbsp;{{main.balldet.legbye_runs}}</div>
+      <div>Bye:&nbsp;{{main.balldet.bye_runs}}</div>
+      <div>Wide:&nbsp;{{main.balldet.wide_runs}}</div>
+      <div>No Ball:&nbsp;{{main.balldet.noball_runs}}</div>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  <script>
+  var $slider = $('.multiple-items')
+  $slider.slick({
+  dots: false,
+  infinite: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  variableWidth: false,
+  nextArrow: '<i class="btnss fa fa-chevron-right fa-2x" aria-hidden="true"></i>',
+  prevArrow: '<i class="btnss fa fa-chevron-left fa-2x"></i>',
+})
+.on("beforeChange", function(e, slick, current, next) {
+    if( next >= (slick.slideCount - slick.options.slidesToShow)) {
+        $slider.addClass("atEnd");
+    } else {
+        $slider.removeClass("atEnd");
+    }
+});
+
+
+
+
+
+
+  </script>
+  <link href="/styles/font-awesome.min.css" rel="stylesheet"/>
+  </body>
+</html>

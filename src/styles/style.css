@@ -1,0 +1,125 @@
+ul#innings {
+  min-width: auto;
+list-style: none;
+overflow: hidden;
+padding: 0;
+display: flex;
+}
+	ul#innings li {
+		display: inline;
+	}
+.ballbyball{
+  height: 5%;
+      display: flex;
+      width: 90%;
+      overflow-x: hidden;
+      position: relative;
+}
+.stream{
+  display: flex;
+  justify-content: center;
+}
+.prev{
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+}
+
+.next{
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
+.item{
+  height: 30px !important;
+  width: 30px !important;
+  background-color: blue;
+  border-radius: 50%;
+  margin-left: 5px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.over{
+  width: 50px !important;
+  position: relative;
+  top: 4px;
+}
+.multiple-items{
+  height: 15% !important;
+  width: 90% !important;
+  display: inline-flex !important;
+}
+.slick-disabled {
+    opacity: 0;
+    pointer-events:none;
+}
+.inner {
+    margin: 0 15px 0 0;
+    background: coral;
+    height: 300px;
+    transition: margin 0.2s ease;
+    -moz-transition: margin 0.2s ease;
+    -ms-transition: margin 0.2s ease;
+    -webkit-transition: margin 0.2s ease;
+}
+
+.atEnd .inner { margin: 0 0 0 15px; }
+
+.slick-container {
+  width: 500px;
+  border: 1px solid gray;
+  margin: auto;
+  padding: 15px;
+}
+
+.slick-item {}
+
+.slick-item img {
+  margin: auto;
+}
+.teams{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.isactive{
+  font-weight: bold;
+}
+.team1,.team2{
+  cursor: pointer;
+}
+.detail_ball{
+  display: inline-flex;
+  width: 90%;
+}
+.detail_player{
+  width: 50%;
+  text-align: start;
+}
+.detail_extra{
+  width: 50%;
+  text-align: start;
+}
+.matches:hover{
+  border-color: green;
+  cursor: pointer;
+}
+.slick-prev:before, .slick-next:before {
+    font-family: "FontAwesome", "slick", sans-serif;
+    font-size: 40px;
+}
+
+.slick-prev:before { content: "\f053"; }
+.slick-next:before { content: "\f054"; }
+.btnss,.ball{
+  cursor: pointer;
+}
+.add-remove{
+  height: 15% !important;
+  width: 90% !important;
+  display: flex !important;
+}
